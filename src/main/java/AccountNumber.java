@@ -5,6 +5,7 @@ import org.apache.commons.lang.StringUtils;
 
 
 public class AccountNumber {
+	private static final int DIGIT_WIDTH = 3;
 	private List<String> entry = new ArrayList<String>();
 	private String accountString;
 	
@@ -30,8 +31,8 @@ public class AccountNumber {
 	private String computeAccount() {
 		String accountNumber = "";
 		for(int i = 0; i <= 24; i++) {
-			if( i % 3  == 0) {
-				int endIndex = i + 3;
+			if( i % DIGIT_WIDTH  == 0) {
+				int endIndex = i + DIGIT_WIDTH;
 				String digit = StringUtils.substring(getEntry().get(0), i, endIndex) + 
 						       StringUtils.substring(getEntry().get(1), i, endIndex) + 
 						       StringUtils.substring(getEntry().get(2), i, endIndex);
